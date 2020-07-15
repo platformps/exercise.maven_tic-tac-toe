@@ -50,10 +50,10 @@ public class Board {
         return "";
     }
     
-    private boolean isInFavorOf(char character) {
+    private boolean isInFavorOf(char player) {
         for (int index = 0; WIN_CONDITIONS.length > index; index++) {
             int[][] winConditionPoints = WIN_CONDITIONS[index];
-            if (isWin(winConditionPoints, character)) {
+            if (isWin(winConditionPoints, player)) {
                 return true;
             }
         }
