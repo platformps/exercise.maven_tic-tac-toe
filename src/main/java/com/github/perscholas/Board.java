@@ -30,11 +30,11 @@ public class Board {
     }
     
     public Boolean isInFavorOfX() {
-        return isWin('X');
+        return isInFavorOf('X');
     }
     
     public Boolean isInFavorOfO() {
-        return isWin('O');
+        return isInFavorOf('O');
     }
     
     public Boolean isTie() {
@@ -50,7 +50,7 @@ public class Board {
         return "";
     }
     
-    private boolean isWin(char character) {
+    private boolean isInFavorOf(char character) {
         for (int index = 0; WIN_CONDITIONS.length > index; index++) {
             int[][] winConditionPoints = WIN_CONDITIONS[index];
             if (isWin(winConditionPoints, character)) {
@@ -59,7 +59,6 @@ public class Board {
         }
         return false;
     }
-    
     
     private boolean isWin(int[][] winConditionPoints, char character) {
         for (int index = 0; winConditionPoints.length > index; index++) {
