@@ -82,12 +82,12 @@ public class Board {
             else if(diagsChecked == 1 && !found){
                 currentCornerRowPos = 2;
                 if(playBoard[currentCornerRowPos][currentCornerColPos] == playerSymbol && playBoard[currentCornerRowPos-1][currentCornerColPos+1] == playerSymbol && playBoard[currentCornerRowPos-2][currentCornerColPos+2] == playerSymbol){
-
+                    found = true;
                 }
             }
             diagsChecked++;
         }
-        return false;
+        return found;
     }
 
 }
