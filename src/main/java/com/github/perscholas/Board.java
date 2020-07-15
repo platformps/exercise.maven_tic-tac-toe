@@ -11,6 +11,9 @@ public class Board {
     //Attributes
     private final Character[][] matrix;
     
+    private static final int X = 0;
+    private static final int Y = 1;
+    
     private static final int[][][] WIN_CONDITIONS = {
             {{0, 0}, {0, 1}, {0, 2}},
             {{1, 0}, {1, 1}, {1, 2}},
@@ -39,30 +42,29 @@ public class Board {
     }
     
     public String getWinner() {
-        if(isInFavorOfO()){
+        if (isInFavorOfO()) {
             return "O";
-        } else if(isInFavorOfX()){
+        } else if (isInFavorOfX()) {
             return "X";
         }
         return "";
     }
     
     private boolean isWin(char character) {
-        for(int index = 0; WIN_CONDITIONS.length > index; index++){
+        for (int index = 0; WIN_CONDITIONS.length > index; index++) {
             int[][] winConditionPoints = WIN_CONDITIONS[index];
-            if(isWin(winConditionPoints, character)){
+            if (isWin(winConditionPoints, character)) {
                 return true;
             }
         }
         return false;
     }
     
-
     
-    private boolean isWin(int[][] winConditionPoints, char character){
-        for(int index = 0; winConditionPoints.length >index; index++){
+    private boolean isWin(int[][] winConditionPoints, char character) {
+        for (int index = 0; winConditionPoints.length > index; index++) {
             int[] point = winConditionPoints[index];
-            if(matrix[point[0]][point[1]] != character){
+            if (matrix[point[X]][point[Y]] != character) {
                 return false;
             }
         }
