@@ -12,11 +12,16 @@ public class Board {
     }
 
     public Boolean isInFavorOfX() {
+        if(checkColumns('X') || checkRows('X') || checkDiags('X')){
+            return true;
+        }
         return false;
     }
 
     public Boolean isInFavorOfO() {
-        if(checkColumns('O') == true)
+        if(checkColumns('O') || checkRows('O') || checkDiags('O')){
+            return true;
+        }
         return false;
     }
 
@@ -42,7 +47,7 @@ public class Board {
         int currentCol = 0;
         boolean found = false;
         while(found == false && currentCol < 3){
-            if(playBoard[currentCol][0] == playerSymbol && playBoard[currentCol][1] == playerSymbol && playBoard[currentCol][2] == playerSymbol){
+            if(playBoard[0][currentCol] == playerSymbol && playBoard[1][currentCol] == playerSymbol && playBoard[2][currentCol] == playerSymbol){
                 found = true;
             }
             currentCol++;
@@ -53,7 +58,7 @@ public class Board {
         int currentRow = 0;
         boolean found = false;
         while(found == false && currentRow < 3){
-            if(playBoard[0][currentRow] == playerSymbol && playBoard[1][currentRow] == playerSymbol && playBoard[2][currentRow] == playerSymbol){
+            if(playBoard[currentRow][0] == playerSymbol && playBoard[currentRow][1] == playerSymbol && playBoard[currentRow][2] == playerSymbol){
                 found = true;
             }
             currentRow++;
@@ -62,7 +67,26 @@ public class Board {
     }
     public boolean checkDiags(char playerSymbol){
         int currentCornerColPos = 0;
-        int currentCornerRowPos = 0;
+        int currentCornerRowPos;
+        int diagsChecked = 0;
+        boolean found = false;
+        while(diagsChecked != 2 && !found){
+            if(diagsChecked == 0){
+                //checking left corner
+                currentCornerRowPos = 0;
+                if(playBoard[currentCornerRowPos][currentCornerColPos] == playerSymbol && playBoard[currentCornerRowPos+1][currentCornerColPos+1] == playerSymbol && playBoard[currentCornerRowPos+2][currentCornerColPos+2] == playerSymbol){
+                    found = true;
+                }
+
+            }
+            else if(diagsChecked == 1 && !found){
+                currentCornerRowPos = 2;
+                if(playBoard[currentCornerRowPos][currentCornerColPos] == playerSymbol && playBoard[currentCornerRowPos-1][currentCornerColPos+1] == playerSymbol && playBoard[currentCornerRowPos-2][currentCornerColPos+2] == playerSymbol){
+
+                }
+            }
+            diagsChecked++;
+        }
         return false;
     }
 
