@@ -47,7 +47,7 @@ public class Board {
               supp.append(String.valueOf(board[i][i]));
               supp2.append(String.valueOf(board[l-i][i]));
           }
-          if(supp.toString().matches("XXX") || supp.toString().matches("XXX"))return true;
+          if(supp.toString().matches("XXX") || supp2.toString().matches("XXX"))return true;
 
         return false;
     }
