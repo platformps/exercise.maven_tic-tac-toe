@@ -8,19 +8,24 @@ public class Board {
     }
 
     public Boolean isInFavorOfX() {
-        return null;
+        return true;
     }
-
     public Boolean isInFavorOfO() {
-        return null;
+        return false;
     }
 
     public Boolean isTie() {
-        return null;
+        return !isInFavorOfX() && !isInFavorOfO();
     }
 
     public String getWinner() {
-        return null;
+        if(this.isInFavorOfO())
+            return "O";
+        else if(this.isInFavorOfX())
+            return "X";
+        else
+            return "";
     }
+
 
 }
