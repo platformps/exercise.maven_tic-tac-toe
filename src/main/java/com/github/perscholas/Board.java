@@ -31,6 +31,7 @@ public class Board {
         else if(isInFavorOfO())
             return "O";
         return "";
+
     }
 
     public boolean isInFavorOf(char XO){
